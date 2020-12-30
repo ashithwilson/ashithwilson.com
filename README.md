@@ -6,7 +6,7 @@
 
 ## Demo
 
-### Live website: [Ashith Wilson]|(https://ashithwilson.com) 's personal website.
+### Live preview: [Ashith Wilson](https://ashithwilson.com)'s personal website.
 
 ## Getting Started 🚀
 
