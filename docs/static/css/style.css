@@ -531,9 +531,9 @@ body:not(.user-is-tabbing) a:focus {
   border-radius: 4px;
 }
 
-.tag-javascript {
-  background: #f0db4f;
-  color: black;
+.tag-kubernetes {
+  background: #131b3d;
+  color: #6ef0fc;
 }
 
 .tag-vue {
