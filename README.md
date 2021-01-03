@@ -25,7 +25,6 @@ This project is using HTML and CSS only. Just update the HTML according to your 
 
 <p align="center">
   <img alt="Google Pagespeed screenshot" src="./docs/static/images/google-pagespeed.jpg">
-  <img alt="Google Pagespeed screenshot" src="./docs/static/images/gtmetrix-screenshot.jpg">
 </p>
 
 ## License
