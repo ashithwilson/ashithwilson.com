@@ -348,6 +348,52 @@
     <a href="#top" class="back-to-top" title="Back to Top">
       <img src="./static/images/arrow_up.svg" alt="Back to Top" />
     </a>
+
+    <script>
+      async function fetchPosts() {
+          try {
+              const url = 'https://blog.ashithwilson.com/index.json';
+              const response = await fetch(url);
+              const data = await response.json();
+
+              // Filter posts where section is 'Posts' and sort by date descending
+              const posts = data.filter(post => post.section === 'Posts')
+                                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                                .slice(0, 3); // Get only the latest 2 posts (to match with the provided HTML)
+
+              // Populate the posts into the HTML structure
+              const articles = document.querySelectorAll('.blogs-list .card');
+              posts.forEach((post, index) => {
+                  articles[index].querySelector('time').textContent = new Date(post.date).toLocaleDateString();
+                  articles[index].querySelector('h3').textContent = limitTitle(post.title);
+                  articles[index].querySelector('.card-content p').textContent = limitSummary(post.summary);
+                  articles[index].querySelector('.card-links a').href = 'https://blog.ashithwilson.com' + post.permalink;
+              });
+          } catch (error) {
+              console.error('Failed to fetch posts:', error);
+          }
+      }
+
+      // Function to limit the title to 8 words
+      function limitTitle(title) {
+          const words = title.split(' ');
+          if (words.length > 8) {
+              return words.slice(0, 8).join(' ') + '...';
+          }
+          return title;
+      }
+
+      // Function to limit the summary to 20 words
+      function limitSummary(summary) {
+          const words = summary.split(' ');
+          if (words.length > 20) {
+              return words.slice(0, 20).join(' ') + '...';
+          }
+          return summary;
+      }
+
+      fetchPosts();
+    </script>
     <script src="./static/js/main.js"></script>
   </body>
 </html>
